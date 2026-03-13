@@ -1,31 +1,59 @@
-
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import Header from '../components/Header';
+import BackgroundWrapper from '../components/BackgroundWrapper';
+import Card from '../components/Card';
+import Button from '../components/Button';
+import colors from '../components/ColorTheme';
 
-export default function TestimonyScreen() {
+export default function TestimonyScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Testimonies</Text>
-      <Text style={styles.subtitle}>Share what God has done in your life.</Text>
-    </View>
+    <BackgroundWrapper>
+      <ScrollView contentContainerStyle={styles.container}>
+
+        <Header title="My Testimony" />
+
+        <Card title="Holy Steel Testimony">
+          <Text style={styles.bodyText}>
+            I didn’t just survive — I transformed.  
+            I walked through darkness, addiction, heartbreak, loss, and spiritual warfare.  
+            But God met me in every valley and lifted me into purpose.
+          </Text>
+
+          <Text style={styles.bodyText}>
+            From the trap to the Bible…  
+            From broken pieces to breakthrough places…  
+            From “Lord help me” to “Lord use me.”
+          </Text>
+
+          <Text style={styles.bodyText}>
+            My testimony is living proof that Jesus still saves, still heals,  
+            still restores, and still calls His children by name.
+          </Text>
+
+          <Text style={styles.bodyText}>
+            Holy Steel 2026 — this is my resurrection story.
+          </Text>
+        </Card>
+
+        <Button 
+          label="Back to Home" 
+          onPress={() => navigation.navigate('Home')} 
+        />
+
+      </ScrollView>
+    </BackgroundWrapper>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#ffffff',
+    padding: 20,
   },
-  title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#800020',
-  },
-  subtitle: {
+  bodyText: {
     fontSize: 16,
-    marginTop: 10,
-    color: '#000000',
+    color: colors.black,
+    marginBottom: 12,
+    lineHeight: 22,
   },
 });
