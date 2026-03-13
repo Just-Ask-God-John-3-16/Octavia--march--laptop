@@ -1,31 +1,49 @@
-
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import Header from '../components/Header';
+import BackgroundWrapper from '../components/BackgroundWrapper';
+import Card from '../components/Card';
+import Button from '../components/Button';
+import colors from '../components/ColorTheme';
 
-export default function DailyScriptureScreen() {
+export default function DailyScriptureScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Daily Scripture</Text>
-      <Text style={styles.subtitle}>A fresh word to strengthen your spirit today.</Text>
-    </View>
+    <BackgroundWrapper>
+      <View style={styles.container}>
+        
+        <Header title="Daily Scripture" />
+
+        <Card title="Today's Verse">
+          <Text style={styles.scripture}>
+            “For we walk by faith, not by sight.”
+          </Text>
+          <Text style={styles.reference}>— 2 Corinthians 5:7</Text>
+        </Card>
+
+        <Button 
+          label="Back to Home" 
+          onPress={() => navigation.navigate('Home')} 
+        />
+
+      </View>
+    </BackgroundWrapper>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#ffffff',
+    padding: 20,
   },
-  title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#800020',
+  scripture: {
+    fontSize: 18,
+    color: colors.burgundy,
+    fontWeight: '600',
+    marginBottom: 6,
   },
-  subtitle: {
-    fontSize: 16,
-    marginTop: 10,
-    color: '#000000',
+  reference: {
+    fontSize: 14,
+    color: colors.black,
+    fontStyle: 'italic',
   },
 });
