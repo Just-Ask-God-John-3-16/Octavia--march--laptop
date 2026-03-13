@@ -30,20 +30,4 @@ export default function Navigation() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
 
-const Stack = createStackNavigator();
-
-export default function Navigation() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen 
-          name="Home" 
-          component={HomeScreen} 
-          options={{ title: 'Just Ask God Ministries' }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );1
-}
