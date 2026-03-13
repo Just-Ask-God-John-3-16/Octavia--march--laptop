@@ -1,31 +1,71 @@
+import React, { useState } from 'react';
+import { View, TextInput, Text, StyleSheet } from 'react-native';
+import Header from '../components/Header';
+import BackgroundWrapper from '../components/BackgroundWrapper';
+import Button from '../components/Button';
+import Card from '../components/Card';
+import colors from '../components/ColorTheme';
 
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+export default function PrayerScreen({ navigation }) {
+  const [prayerText, setPrayerText] = useState('');
 
-export default function PrayerScreen() {
+  const handleSubmit = () => {
+    // For now, we just clear the text.
+    // Later we can save it to a database or email.
+    setPrayerText('');
+    alert('Your prayer request has been submitted.');
+  };
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Prayer Requests</Text>
-      <Text style={styles.subtitle}>Submit your prayer and we will stand with you.</Text>
-    </View>
+    <BackgroundWrapper>
+      <View style={styles.container}>
+        
+        <Header title="Prayer Requests" />
+
+        <Card title="Share Your Prayer">
+          <Text style={styles.label}>What would you like prayer for?</Text>
+
+          <TextInput
+            style={styles.input}
+            placeholder="Type your prayer request here..."
+            placeholderTextColor={colors.black}
+            multiline
+            value={prayerText}
+            onChangeText={setPrayerText}
+          />
+
+          <Button label="Submit Prayer Request" onPress={handleSubmit} />
+        </Card>
+
+        <Button 
+          label="Back to Home" 
+          onPress={() => navigation.navigate('Home')} 
+        />
+
+      </View>
+    </BackgroundWrapper>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#ffffff',
+    padding: 20,
   },
-  title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#800020',
-  },
-  subtitle: {
+  label: {
     fontSize: 16,
-    marginTop: 10,
-    color: '#000000',
+    color: colors.burgundy,
+    marginBottom: 10,
+    fontWeight: '600',
+  },
+  input: {
+    backgroundColor: colors.white,
+    borderRadius: 10,
+    padding: 15,
+    minHeight: 120,
+    textAlignVertical: 'top',
+    marginBottom: 20,
+    borderWidth: 1,
+    borderColor: colors.gold,
   },
 });
