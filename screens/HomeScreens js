@@ -1,30 +1,74 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Just Ask God Ministries</Text>
-      <Text style={styles.subtitle}>Your digital sanctuary begins here</Text>
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.title}>Just Ask God Ministries</Text>
+      <Text style={styles.subtitle}>Choose a section to begin</Text>
+
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Prayer')}>
+        <Text style={styles.buttonText}>Prayer Requests</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Daily Scripture')}>
+        <Text style={styles.buttonText}>Daily Scripture</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Bible Study')}>
+        <Text style={styles.buttonText}>Bible Study</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Testimonies')}>
+        <Text style={styles.buttonText}>Testimonies</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Recovery Support')}>
+        <Text style={styles.buttonText}>Recovery Support</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Donations')}>
+        <Text style={styles.buttonText}>Donations & Giving</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('About Ministry')}>
+        <Text style={styles.buttonText}>About the Ministry</Text>
+      </TouchableOpacity>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingVertical: 40,
     backgroundColor: '#ffffff',
   },
   title: {
-    fontSize: 22,
+    fontSize: 26,
     fontWeight: 'bold',
     color: '#800020',
+    marginBottom: 10,
   },
   subtitle: {
     fontSize: 16,
-    marginTop: 10,
     color: '#000000',
+    marginBottom: 20,
+  },
+  button: {
+    backgroundColor: '#800020',
+    paddingVertical: 12,
+    paddingHorizontal: 25,
+    borderRadius: 8,
+    marginVertical: 8,
+    width: '80%',
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#ffffff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
