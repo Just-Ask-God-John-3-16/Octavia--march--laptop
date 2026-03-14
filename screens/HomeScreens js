@@ -1,39 +1,4 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function HomeScreen({ navigation }) {
-  return (
-    <View style={styles.container}>
-
-      {/* ⭐ Crown at the top ⭐ */}
-      <Image
-        source={require('../assets/crown-icon.png')}
-        style={styles.crown}
-      />
-
-      {/* Title */}
-      <Text style={styles.title}>Just Ask God Ministries</Text>
-      <Text style={styles.subtitle}>Welcome Home</Text>
-
-      {/* Buttons */}
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Dashboard')}
-      >
-        <Text style={styles.buttonText}>Go to Dashboard</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Prayer')}
-      >
-        <Text style={styles.buttonText}>Prayer Room</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Art')}
-      >
         <Text style={styles.buttonText}>Art & Inspiration</Text>
       </TouchableOpacity>
 
@@ -42,7 +7,7 @@ export default function HomeScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  : {
     flex: 1,
     backgroundColor: '#000',
     alignItems: 'center',
@@ -70,9 +35,3 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     borderRadius: 10,
     marginTop: 15,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 18,
-  },
-});
