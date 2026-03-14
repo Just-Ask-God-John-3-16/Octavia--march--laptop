@@ -1,68 +1,93 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import Header from '../components/Header';
-import BackgroundWrapper from '../components/BackgroundWrapper';
-import Card from '../components/Card';
-import Button from '../components/Button';
-import colors from '../components/ColorTheme';
+import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 
-export default function AboutMinistryScreen({ navigation }) {
+export default function AboutMinistryScreen() {
   return (
-    <BackgroundWrapper>
-      <ScrollView contentContainerStyle={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
 
-        <Header title="About the Ministry" />
+      {/* ⭐ Crown at the top ⭐ */}
+      <Image
+        source={require('../assets/crown-icon.png')}
+        style={styles.crown}
+      />
 
-        <Card title="Just Ask God Ministries">
-          <Text style={styles.bodyText}>
-            Just Ask God Ministries is a faith-driven movement dedicated to healing,
-            restoration, recovery, and spiritual growth. We believe that no matter
-            where you come from, God can meet you right where you are.
-          </Text>
+      <Text style={styles.title}>About the Ministry</Text>
+      <Text style={styles.subtitle}>The heart behind the mission</Text>
 
-          <Text style={styles.bodyText}>
-            Our mission is to provide prayer, support, scripture, mentorship, and
-            community for anyone seeking a deeper relationship with Christ.
-          </Text>
-        </Card>
+      {/* Mission */}
+      <Text style={styles.sectionTitle}>Our Mission</Text>
+      <Text style={styles.description}>
+        Just Ask God Ministries exists to bring hope, healing, and clarity  
+        to those seeking God in their everyday lives.  
+        Through prayer, scripture, creativity, and testimony,  
+        we help people reconnect with the One who never left them.
+      </Text>
 
-        <Card title="Our Purpose">
-          <Text style={styles.bodyText}>
-            • To uplift those in recovery  
-            • To offer prayer and spiritual guidance  
-            • To share testimony and hope  
-            • To build a safe space for healing  
-            • To spread the Gospel with love and truth  
-          </Text>
-        </Card>
+      {/* Vision */}
+      <Text style={styles.sectionTitle}>Our Vision</Text>
+      <Text style={styles.description}>
+        To build a global ministry that blends faith, art, recovery,  
+        and community support — offering free Bibles, spiritual guidance,  
+        and creative resources that uplift and transform lives.
+      </Text>
 
-        <Card title="Founder">
-          <Text style={styles.bodyText}>
-            Founded by Tiffany Saunders, this ministry was birthed from a powerful
-            testimony of survival, transformation, and Holy Spirit fire.  
-            Tiffany’s journey is living proof that God still restores, still heals,
-            and still calls His children into purpose.
-          </Text>
-        </Card>
+      {/* Values */}
+      <Text style={styles.sectionTitle}>Core Values</Text>
+      <Text style={styles.description}>
+        • Faith over fear  
+        • Healing through honesty  
+        • Creativity as worship  
+        • Recovery with dignity  
+        • Legacy, family, and spiritual identity  
+      </Text>
 
-        <Button 
-          label="Back to Home" 
-          onPress={() => navigation.navigate('Home')} 
-        />
+      {/* Contact */}
+      <Text style={styles.sectionTitle}>Contact</Text>
+      <Text style={styles.description}>
+        Ministry Phone: (816) 639-2600  
+        Email: Justaskgod1999@gmail.com  
+      </Text>
 
-      </ScrollView>
-    </BackgroundWrapper>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    backgroundColor: '#000',
+    alignItems: 'center',
+    paddingTop: 60,
+    paddingBottom: 80,
+    paddingHorizontal: 20,
   },
-  bodyText: {
-    fontSize: 16,
-    color: colors.black,
-    marginBottom: 12,
-    lineHeight: 22,
+  crown: {
+    width: 180,
+    height: 180,
+    resizeMode: 'contain',
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 28,
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  subtitle: {
+    fontSize: 18,
+    color: '#ccc',
+    marginBottom: 40,
+  },
+  sectionTitle: {
+    fontSize: 22,
+    color: '#fff',
+    fontWeight: 'bold',
+    marginTop: 30,
+    marginBottom: 10,
+    alignSelf: 'flex-start',
+  },
+  description: {
+    fontSize: 18,
+    color: '#ddd',
+    lineHeight: 26,
+    marginBottom: 30,
   },
 });
