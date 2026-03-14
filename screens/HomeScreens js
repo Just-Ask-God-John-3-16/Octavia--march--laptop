@@ -1,74 +1,78 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <View style={styles.container}>
+
+      {/* ⭐ Crown at the top ⭐ */}
+      <Image
+        source={require('../assets/crown-icon.png')}
+        style={styles.crown}
+      />
+
+      {/* Title */}
       <Text style={styles.title}>Just Ask God Ministries</Text>
-      <Text style={styles.subtitle}>Choose a section to begin</Text>
+      <Text style={styles.subtitle}>Welcome Home</Text>
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Prayer')}>
-        <Text style={styles.buttonText}>Prayer Requests</Text>
+      {/* Buttons */}
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Dashboard')}
+      >
+        <Text style={styles.buttonText}>Go to Dashboard</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Daily Scripture')}>
-        <Text style={styles.buttonText}>Daily Scripture</Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Prayer')}
+      >
+        <Text style={styles.buttonText}>Prayer Room</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Bible Study')}>
-        <Text style={styles.buttonText}>Bible Study</Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Art')}
+      >
+        <Text style={styles.buttonText}>Art & Inspiration</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Testimonies')}>
-        <Text style={styles.buttonText}>Testimonies</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Recovery Support')}>
-        <Text style={styles.buttonText}>Recovery Support</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Donations')}>
-        <Text style={styles.buttonText}>Donations & Giving</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('About Ministry')}>
-        <Text style={styles.buttonText}>About the Ministry</Text>
-      </TouchableOpacity>
-    </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    justifyContent: 'center',
+    flex: 1,
+    backgroundColor: '#000',
     alignItems: 'center',
-    paddingVertical: 40,
-    backgroundColor: '#ffffff',
+    paddingTop: 60,
+  },
+  crown: {
+    width: 200,
+    height: 200,
+    resizeMode: 'contain',
+    marginBottom: 20,
   },
   title: {
     fontSize: 26,
+    color: '#fff',
     fontWeight: 'bold',
-    color: '#800020',
-    marginBottom: 10,
   },
   subtitle: {
-    fontSize: 16,
-    color: '#000000',
-    marginBottom: 20,
+    fontSize: 18,
+    color: '#ccc',
+    marginBottom: 40,
   },
   button: {
-    backgroundColor: '#800020',
+    backgroundColor: '#800080',
     paddingVertical: 12,
-    paddingHorizontal: 25,
-    borderRadius: 8,
-    marginVertical: 8,
-    width: '80%',
-    alignItems: 'center',
+    paddingHorizontal: 30,
+    borderRadius: 10,
+    marginTop: 15,
   },
   buttonText: {
-    color: '#ffffff',
-    fontSize: 16,
-    fontWeight: 'bold',
+    color: '#fff',
+    fontSize: 18,
   },
 });
